@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+# Add any container initialization steps here
+# Create the db
+bundle exec rake db:create
+# Run migrations
+bundle exec rake db:migrate
+exec "${@}"
