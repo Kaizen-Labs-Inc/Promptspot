@@ -16,3 +16,7 @@ test:
   database: promptspot_test
   username: postgres
   password: postgres
+
+production:
+  <<: *default
+  database: ENV['DATABASE_URL']
