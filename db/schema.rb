@@ -37,15 +37,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_104354) do
     t.index ["account_id"], name: "index_api_keys_on_account_id"
   end
 
-  create_table "contexts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "text"
-    t.uuid "account_id"
-    t.uuid "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title"
-  end
-
   create_table "good_job_batches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -224,13 +215,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_104354) do
     t.datetime "updated_at", null: false
     t.string "status"
     t.boolean "archived", default: false
-  end
-
-  create_table "test_suite_contexts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "test_suite_id"
-    t.uuid "context_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "test_suite_inputs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

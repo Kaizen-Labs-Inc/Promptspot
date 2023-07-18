@@ -36,23 +36,25 @@ instructions if you haven't done so already.
 
 ### Steps
 
-1. Clone the repo:
-2. Navigate into the project directory:
+1. Clone the repo
+2. Navigate into the directory and install dependencies:
     ```
-    cd promptspot
+    bundle install
     ```
 3. Copy `.env.example` to `.env` and fill in the necessary environment variables:
     ```
     cp .env.example .env
     ```
-4. Build and start the Docker services:
+4. Start the app:
     ```
-    docker-compose up --build
+    bin/dev
     ```
 5. Visit `http://localhost:3000`
 6. Create a new account and sign in
-7. Visit `http://localhost:3000/users/edit` and add your OpenAI API key
+7. Visit the `Team` link in the left hand rail and add your OpenAI API key
 
+### Deploying
+`fly deploy` will deploy the app to http://promptspot-hotel.fly.dev
 ## Concepts
 
 ### Prompts
