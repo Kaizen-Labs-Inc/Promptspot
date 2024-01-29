@@ -4,8 +4,7 @@
 model_provider = ModelProvider.find_or_create_by!(name: "OpenAI")
 
 models_data = [
-  {name: "gpt-4-0125-preview", description: "The latest GPT-4 model intended to reduce cases of 'laziness' where the model doesn’t complete a task.", enabled: true, model_type: "chat"},
-  { name: "gpt-4", description: "More capable than any GPT-3.5 model, and able to do more complex tasks at a higher cost.", enabled: true, model_type: "chat" },
+  {name: "gpt-4-preview", description: "The latest GPT-4 model intended to reduce cases of 'laziness' where the model doesn’t complete a task.", enabled: true, model_type: "chat"},
   { name: "gpt-3.5-turbo-1106", description: "The latest GPT-3.5 Turbo model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens.", enabled: true, model_type: "chat" },
 ]
 
