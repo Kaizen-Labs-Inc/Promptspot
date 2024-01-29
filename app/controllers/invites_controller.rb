@@ -34,8 +34,15 @@ class InvitesController < ApplicationController
     if @invite.nil?
       flash[:alert] = "Invalid invitation token"
       redirect_to root_path
+    elsif User.find_by(email: @invite.email).present?
+      if current_user.present? && current_user.email == @invite.email
+          AccountMembership.create(user: current_user, account: @invite.account)
+          redirect_to root_path, notice: "Invitation accepted. Welcome!"
+      else
+          redirect_to new_user_session_path, notice: "Please sign in first."
+      end
     else
-      @user = User.new(email: @invite.email)
+        @user = User.new(email: @invite.email)
     end
   end
 
@@ -47,6 +54,14 @@ class InvitesController < ApplicationController
     elsif @invite.accepted?
       flash[:alert] = "Invitation already accepted"
       redirect_to root_path
+    elsif User.find_by(email: user_params[:email]).present?
+      if current_user.present? && current_user.email == user_params[:email]
+        AccountMembership.create(user: current_user, account: @invite.account)
+        flash[:notice] = "Invitation accepted. Welcome!"
+        redirect_to root_path
+      else
+        redirect_to new_user_session_path, notice: "Please sign in first."
+      end
     else
       @user = User.new(user_params)
       @user.skip_account_creation = true # Skip the creation of Account and Organization

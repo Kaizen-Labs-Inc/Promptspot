@@ -1,5 +1,5 @@
 class InviteMailer < ApplicationMailer
-  default from: 'no-reply@promptspot.com'
+  default from: 'hello@promptspot.fun'
 
   def invitation_email(invite)
     @invite = invite
