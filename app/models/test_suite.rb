@@ -9,7 +9,6 @@ class TestSuite < ApplicationRecord
   has_many :test_suite_models
   has_many :models, through: :test_suite_models
   validates :name, presence: true
-  validates :mode, inclusion: { in: %w[completion chat code image] }
   validates :archived, inclusion: { in: [true, false] }
 
   def configured?
