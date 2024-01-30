@@ -93,7 +93,7 @@ class TestSuitesController < ApplicationController
       end
 
       @test_suite.transaction do
-        @test_suite.update!(name: test_suite_params[:name])
+        @test_suite.update!(name: test_suite_params[:name], response_format: test_suite_params[:response_format])
         @test_suite.input_ids = test_suite_params.require(:input_ids)
         @test_suite.prompt_ids = test_suite_params.require(:prompt_ids)
         @test_suite.model_ids = test_suite_params.require(:model_ids)
@@ -136,6 +136,6 @@ class TestSuitesController < ApplicationController
   end
 
   def test_suite_params
-    params.require(:test_suite).permit(:name, :mode, :run_now, prompt_ids: [], input_ids: [], model_ids: [])
+    params.require(:test_suite).permit(:name, :mode, :response_format, :run_now, prompt_ids: [], input_ids: [], model_ids: [])
   end
 end

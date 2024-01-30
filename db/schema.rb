@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_18_104354) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_30_105017) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -246,6 +246,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_104354) do
     t.uuid "account_id"
     t.boolean "archived", default: false
     t.string "mode"
+    t.string "response_format"
     t.index ["account_id"], name: "index_test_suites_on_account_id"
   end
 

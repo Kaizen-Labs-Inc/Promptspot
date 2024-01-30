@@ -104,6 +104,28 @@
       </div>
     </div>
   </div>
+  <hr/>
+  <div data-controller="response-format">
+    <div class="flex flex-row items-start justify-between mt-8 py-8">
+      <div class="flex-grow">
+        <h2 class="text-xl mb-6">Respond with JSON only</h2>
+        <div class="field flex flex-row items-center space-x-2">
+          <%= check_box_tag :response_format_json, "json", @test_suite.response_format == "json", id: "response_format_json", class: "cursor-pointer", data: { action: "change->response-format#toggle" } %>
+          <%= label_tag :response_format_json, "Respond with JSON only", class: "cursor-pointer", for: "response_format_json" %>
+          <%= form.hidden_field :response_format, value: (@test_suite.response_format == "json" ? "json" : nil), data: { response_format_target: "field" } %>
+        </div>
+
+
+
+      </div>
+    <p class="ml-12 text-gray-400 text-sm text-right w-72 flex-shrink-0">
+      Sets the response_format to 'json' which tells OpenAI to only return a valid JSON response.
+    </p>
+    </div>
+  </div>
+
+
+
 
   <%= form.hidden_field :mode, value: 'completion' %>
   <%= form.hidden_field :run_now, value: '', data: { "prompt-panel-target": "runNow" } %>
