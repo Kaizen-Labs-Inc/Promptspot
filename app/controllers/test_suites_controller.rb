@@ -32,7 +32,7 @@ class TestSuitesController < ApplicationController
         @test_suite.input_ids = test_suite_params[:input_ids]
         @test_suite.prompt_ids = test_suite_params[:prompt_ids]
         @test_suite.model_ids = test_suite_params[:model_ids]
-        @test_suite.mode = test_suite_params[:mode]
+        @test_suite.response_format = test_suite_params[:response_format]
         @test_suite.save! # This will raise an exception if validations fail
       end
 
@@ -136,6 +136,6 @@ class TestSuitesController < ApplicationController
   end
 
   def test_suite_params
-    params.require(:test_suite).permit(:name, :mode, :response_format, :run_now, prompt_ids: [], input_ids: [], model_ids: [])
+    params.require(:test_suite).permit(:name, :response_format, :run_now, prompt_ids: [], input_ids: [], model_ids: [])
   end
 end

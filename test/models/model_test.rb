@@ -28,18 +28,8 @@ class ModelTest < ActiveSupport::TestCase
       FactoryBot.create(:model, enabled: nil)
     end
   end
-  
-  test "should not create model without model_type" do
-    assert_raises ActiveRecord::RecordInvalid do
-      FactoryBot.create(:model, model_type: nil)
-    end
-  end
 
-  test "should not create model with invalid model_type" do
-    assert_raises ActiveRecord::RecordInvalid do
-      FactoryBot.create(:model, model_type: "invalid")
-    end
-  end
+
 
   test "should not create model with invalid model_provider_id" do
     assert_raises ActiveRecord::RecordInvalid do

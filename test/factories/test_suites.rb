@@ -3,7 +3,6 @@ FactoryBot.define do
     user
     account
     name { "Test Suite Example" }
-    mode { "completion" }
     archived { false }
   end
 end
